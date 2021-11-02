@@ -1,0 +1,4 @@
+{
+    "note_post_url" : "https://sushi.ski/api/notes",
+    "wss_url" : "wss://sushi.ski/streaming"
+}
