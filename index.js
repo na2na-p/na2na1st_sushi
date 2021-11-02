@@ -237,7 +237,7 @@ async function post_note(message, is_reply, reply_id) {
             }
             else {
                 resolve(body);
-                console.log(body);
+                //console.log(body);
             }
         });
     });

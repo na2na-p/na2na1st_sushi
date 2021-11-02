@@ -218,7 +218,7 @@ async function post_note(message: string, is_reply: boolean, reply_id: string) {
                 console.log(error);
             } else {
                 resolve(body);
-                console.log(body);
+                //console.log(body);
             }
         });
     });
