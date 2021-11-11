@@ -54,13 +54,13 @@ function ws_connect() {
                                 ;
                                 //received_fromの文字列に"@"が含まれる場合、"@"の後ろに"\u200B"を追加
                                 if (received_from.includes("@")) {
-                                    received_from = received_from.replace("@", "@\u200B");
+                                    received_from = received_from.replace(/@/g, "@\u200B");
                                 }
                             }
                             else {
                                 received_from = message.body.body.user.username;
                                 if (received_from.includes("@")) {
-                                    received_from = received_from.replace("@", "@\u200B");
+                                    received_from = received_from.replace(/@/g, "@\u200B");
                                 }
                             }
                             reply_id = message.body.body.id;
