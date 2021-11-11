@@ -55,9 +55,16 @@ function ws_connect(){
                         if (message.body.body.text != undefined && message.body.body.text != received_message) {
                             received_message = message.body.body.text;
                             if (message.body.body.user.name != null) { //名前セット無しに対応
-                                received_from = message.body.body.user.name;
+                                received_from = message.body.body.user.name;;
+                                //received_fromの文字列に"@"が含まれる場合、"@"の後ろに"\u200B"を追加
+                                if (received_from.includes("@")) {
+                                    received_from = received_from.replace("@", "@\u200B");
+                                }
                             }else{
                                 received_from = message.body.body.user.username;
+                                if (received_from.includes("@")) {
+                                    received_from = received_from.replace("@", "@\u200B");
+                                }
                             }
                             reply_id = message.body.body.id;
                             let raw_date: any = new Date();
