@@ -52,15 +52,72 @@ function ws_connect() {
                             if (message.body.body.user.name != null) { //名前セット無しに対応
                                 received_from = message.body.body.user.name;
                                 ;
-                                //received_fromの文字列に"@"が含まれる場合、"@"の後ろに"\u200B"を追加
+                                //MFM関係の対策
                                 if (received_from.includes("@")) {
                                     received_from = received_from.replace(/@/g, "@\u200B");
+                                }
+                                if (received_from.includes("#")) {
+                                    received_from = received_from.replace(/\#/g, "#\u200B");
+                                }
+                                if (received_from.includes("$")) {
+                                    received_from = received_from.replace(/\$/g, "$\u200B");
+                                }
+                                if (received_from.includes("http")) {
+                                    received_from = received_from.replace(/http/g, "http\u200B");
+                                }
+                                if (received_from.includes("*")) {
+                                    received_from = received_from.replace(/\*/g, "*\u200B");
+                                }
+                                if (received_from.includes("<small>")) {
+                                    received_from = received_from.replace(/<small>/g, "<small>\u200B");
+                                }
+                                if (received_from.includes(">")) {
+                                    received_from = received_from.replace(/>/g, ">\u200B");
+                                }
+                                if (received_from.includes("<center>")) {
+                                    received_from = received_from.replace(/<center>/g, "<center>\u200B");
+                                }
+                                if (received_from.includes("\`")) {
+                                    received_from = received_from.replace(/\`/g, "\`\u200B");
+                                }
+                                if (received_from.includes("\\")) {
+                                    received_from = received_from.replace(/\\/g, "\\\u200B");
+                                }
+                                if (received_from.includes("検索")) {
+                                    received_from = received_from.replace(/検索/g, "検\u200B索");
                                 }
                             }
                             else {
                                 received_from = message.body.body.user.username;
                                 if (received_from.includes("@")) {
                                     received_from = received_from.replace(/@/g, "@\u200B");
+                                }
+                                if (received_from.includes("#")) {
+                                    received_from = received_from.replace(/\#/g, "#\u200B");
+                                }
+                                if (received_from.includes("$")) {
+                                    received_from = received_from.replace(/\$/g, "$\u200B");
+                                }
+                                if (received_from.includes("http")) {
+                                    received_from = received_from.replace(/http/g, "http\u200B");
+                                }
+                                if (received_from.includes("*")) {
+                                    received_from = received_from.replace(/\*/g, "*\u200B");
+                                }
+                                if (received_from.includes("<small>")) {
+                                    received_from = received_from.replace(/<small>/g, "<small>\u200B");
+                                }
+                                if (received_from.includes(">")) {
+                                    received_from = received_from.replace(/>/g, ">\u200B");
+                                }
+                                if (received_from.includes("<center>")) {
+                                    received_from = received_from.replace(/<center>/g, "<center>\u200B");
+                                }
+                                if (received_from.includes("\`")) {
+                                    received_from = received_from.replace(/\`/g, "\`\u200B");
+                                }
+                                if (received_from.includes("\\")) {
+                                    received_from = received_from.replace(/\\/g, "\\\u200B");
                                 }
                             }
                             reply_id = message.body.body.id;
